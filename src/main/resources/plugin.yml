@@ -1,0 +1,4 @@
+name: TeleporteriVarianta
+version: '${project.version}'
+main: teleporteri.Main
+api-version: 1.18
