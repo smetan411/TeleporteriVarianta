@@ -2,3 +2,10 @@ name: TeleporteriVarianta
 version: '${project.version}'
 main: teleporteri.Main
 api-version: 1.18
+
+commands:
+  _Duch:
+  _Golem:
+  _Lucistnik:
+  _Ohnivak:
+  _Vidlak:

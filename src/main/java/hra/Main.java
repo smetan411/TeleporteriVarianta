@@ -1,5 +1,7 @@
 package hra;
 
+import hra.listenery.PripojeniListener;
+import hra.listenery.RespawnHrace;
 import hra.listenery.SmrtHrace;
 import hra.teleporteri.commands.*;
 import hra.teleporteri.listenery.*;
@@ -17,6 +19,8 @@ public class Main extends JavaPlugin {
         getServer().getPluginManager().registerEvents(new LucistnikListener(), this);
         getServer().getPluginManager().registerEvents(new DuchListener(), this);
         getServer().getPluginManager().registerEvents(new SmrtHrace(), this);
+        getServer().getPluginManager().registerEvents(new RespawnHrace(), this);
+        getServer().getPluginManager().registerEvents(new PripojeniListener(), this);
         getServer().getPluginManager().registerEvents(new NesmrtelnostTeleporteru(), this);
 
         //commands
