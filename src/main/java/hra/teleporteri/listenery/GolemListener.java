@@ -27,7 +27,7 @@ public class GolemListener implements Listener {
             var vybavaGolem = new VybavaGolem();
             hrac.teleport(mistoAreny.get());
             hrac.sendMessage("Byl jsi úspěšně připojen do hry.");
-            hrac.addPotionEffect(new PotionEffect(PotionEffectType.REGENERATION, 999999999, 0, true, false, false));
+            hrac.addPotionEffect(new PotionEffect(PotionEffectType.REGENERATION, 999999999, 700, true, false, false));
             hrac.getInventory().clear();
             hrac.getInventory().setBoots(vybavaGolem.vyrobGolemBoty());
             hrac.getInventory().setHelmet(vybavaGolem.vyrobGolemDyne());

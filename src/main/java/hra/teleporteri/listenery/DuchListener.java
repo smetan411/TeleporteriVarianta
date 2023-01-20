@@ -25,7 +25,7 @@ public class DuchListener implements Listener {
         if (Teleporteri.DUCH.getJmeno().equals(jmenoVesnicana)) {
             hrac.teleport(mistoAreny.get());
             hrac.sendMessage("Byl jsi úspěšně připojen do hry.");
-            hrac.addPotionEffect(new PotionEffect(PotionEffectType.REGENERATION, 999999999, 0, true, false, false));
+            hrac.addPotionEffect(new PotionEffect(PotionEffectType.REGENERATION, 999999999, 700, true, false, false));
             hrac.addPotionEffect(new PotionEffect(PotionEffectType.INVISIBILITY, 999999999, 0, true, false, false));
             hrac.getInventory().clear();
             hrac.getInventory().addItem(VybavaDuch.vyrobMec());

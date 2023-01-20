@@ -44,22 +44,8 @@ public class VybavaOhnivak {
         return ohnivakovyKalhoty;
     }
 
-    public ItemStack vyrobOhnivakBrneni() {
-        var ohnivakovoBrneni = new ItemStack(Material.LEATHER_CHESTPLATE, 1);
-        ohnivakovoBrneni.addEnchantment(Enchantment.PROTECTION_FIRE, 1);
-        // tvorba barev:
-        LeatherArmorMeta meta = (LeatherArmorMeta) ohnivakovoBrneni.getItemMeta();
-        meta.setColor(Color.RED);
-        ohnivakovoBrneni.setItemMeta(meta);
 
-        var itemMeta = ohnivakovoBrneni.getItemMeta();
-        itemMeta.setUnbreakable(true);
-        itemMeta.setDisplayName("Ohnivakovo Brneni");
-        AttributeModifier attributeModifier = new AttributeModifier("Sila Brneni Armor", 7, AttributeModifier.Operation.ADD_NUMBER);
-        itemMeta.addAttributeModifier(Attribute.GENERIC_ARMOR, attributeModifier);
-        ohnivakovoBrneni.setItemMeta(itemMeta);
-        return ohnivakovoBrneni;
-    }
+
 
     public ItemStack vyrobOhnivakHelma() {
         var ohnivakovaHelma = new ItemStack(Material.LEATHER_HELMET, 1);
