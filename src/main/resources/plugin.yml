@@ -1,6 +1,6 @@
 name: TeleporteriVarianta
 version: '${project.version}'
-main: teleporteri.Main
+main: hra.Main
 api-version: 1.18
 
 commands:

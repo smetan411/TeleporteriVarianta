@@ -8,10 +8,11 @@ import org.bukkit.event.player.PlayerRespawnEvent;
 
 public class RespawnHrace implements Listener {
     @EventHandler
-    public void respawn(PlayerRespawnEvent respawnEvent) {
+    public void respawn(PlayerRespawnEvent respawnEvent){
         Player player = respawnEvent.getPlayer();
         var mistoLoby = new MistoLobby(player.getWorld());
-        player.getInventory().clear();
+        respawnEvent.setRespawnLocation(mistoLoby.get());
         player.teleport(mistoLoby.get());
+        player.getInventory().clear();
     }
 }
