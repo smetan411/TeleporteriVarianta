@@ -11,6 +11,8 @@ import org.bukkit.event.entity.EntityDamageByEntityEvent;
 import org.bukkit.potion.PotionEffect;
 import org.bukkit.potion.PotionEffectType;
 
+import static hra.vybava.MecNaTeleportery.MEC_NA_TELEPORTERY;
+
 public class LucistnikListener implements Listener {
 
     @EventHandler
@@ -23,34 +25,37 @@ public class LucistnikListener implements Listener {
         var jmenoVesnicana = vesnican.getCustomName();
 
         if (Teleporteri.LUCISTNIK.getJmeno().equals(jmenoVesnicana)) {
-            var vybavaLucistnik = new VybavaLucistnik();
-            hrac.teleport(mistoAreny.get());
-            hrac.sendMessage("Byl jsi úspěšně připojen do hry.");
-            hrac.addPotionEffect(new PotionEffect(PotionEffectType.REGENERATION, 999999999, 700, true, false, false));
-            hrac.getInventory().clear();
-            hrac.getInventory().setBoots(vybavaLucistnik.vyrobLucistnikBoty());
-            hrac.getInventory().setHelmet(vybavaLucistnik.vyrobLucistnikHelma());
-            hrac.getInventory().setLeggings(vybavaLucistnik.vyrobLucistnikKalhoty());
-            hrac.getInventory().setChestplate(vybavaLucistnik.vyrobLucistnikBrneni());
-            hrac.getInventory().addItem(vybavaLucistnik.vyrobLucistnikMec());
-            hrac.getInventory().addItem(vybavaLucistnik.vyrobSekeru());
-            hrac.getInventory().addItem(vybavaLucistnik.vyrobLuk());
-            hrac.getInventory().addItem(vybavaLucistnik.vyrobSip());
-            hrac.getInventory().addItem(vybavaLucistnik.vyrobSip());
-            hrac.getInventory().addItem(vybavaLucistnik.vyrobLucistnikKus());
-            hrac.getInventory().addItem(vybavaLucistnik.vyrobLucistnikKus());
-            hrac.getInventory().addItem(vybavaLucistnik.vyrobLucistnikKus());
-            hrac.getInventory().addItem(vybavaLucistnik.vyrobLucistnikKus());
-            hrac.getInventory().addItem(vybavaLucistnik.vyrobEnderPerlu());
-            hrac.getInventory().addItem(vybavaLucistnik.vyrobJabka());
-            hrac.getInventory().setItemInOffHand(vybavaLucistnik.vyrobLucistnikStit());
-
-            if (vesnican instanceof LivingEntity) {
-                LivingEntity zijciVesnican = (LivingEntity) vesnican;
-                zijciVesnican.addPotionEffect(new PotionEffect(PotionEffectType.HEAL, 10, 5));
+            if ((Teleporteri.LUCISTNIK.getJmeno().equals(event.getEntity().getCustomName())) &&
+                    ((MEC_NA_TELEPORTERY.equals(hrac.getInventory().getItemInMainHand().getItemMeta().getDisplayName())))) {
+                event.getEntity().remove();
+ //               event.setCancelled(true);
+            } else {
+                var vybavaLucistnik = new VybavaLucistnik();
+                hrac.teleport(mistoAreny.get());
+                hrac.sendMessage("Byl jsi úspěšně připojen do hry.");
+                hrac.addPotionEffect(new PotionEffect(PotionEffectType.REGENERATION, 999999999, 5, true, false, false));
+                hrac.getInventory().clear();
+                hrac.getInventory().setBoots(vybavaLucistnik.vyrobLucistnikBoty());
+                hrac.getInventory().setHelmet(vybavaLucistnik.vyrobLucistnikHelma());
+                hrac.getInventory().setLeggings(vybavaLucistnik.vyrobLucistnikKalhoty());
+                hrac.getInventory().setChestplate(vybavaLucistnik.vyrobLucistnikBrneni());
+                hrac.getInventory().addItem(vybavaLucistnik.vyrobLucistnikMec());
+                hrac.getInventory().addItem(vybavaLucistnik.vyrobSekeru());
+                hrac.getInventory().addItem(vybavaLucistnik.vyrobLuk());
+                hrac.getInventory().addItem(vybavaLucistnik.vyrobSip());
+                hrac.getInventory().addItem(vybavaLucistnik.vyrobSip());
+                hrac.getInventory().addItem(vybavaLucistnik.vyrobLucistnikKus());
+                hrac.getInventory().addItem(vybavaLucistnik.vyrobLucistnikKus());
+                hrac.getInventory().addItem(vybavaLucistnik.vyrobLucistnikKus());
+                hrac.getInventory().addItem(vybavaLucistnik.vyrobLucistnikKus());
+                hrac.getInventory().addItem(vybavaLucistnik.vyrobEnderPerlu());
+                hrac.getInventory().addItem(vybavaLucistnik.vyrobJabka());
+                hrac.getInventory().setItemInOffHand(vybavaLucistnik.vyrobLucistnikStit());
+                if (vesnican instanceof LivingEntity) {
+                    LivingEntity zijiciVesnican = (LivingEntity) vesnican;
+                    zijiciVesnican.addPotionEffect(new PotionEffect(PotionEffectType.HEAL, 10, 5));
+                }
             }
-            event.setCancelled(true);
         }
     }
 }
-

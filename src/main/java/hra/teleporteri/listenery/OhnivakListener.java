@@ -11,6 +11,8 @@ import org.bukkit.event.entity.EntityDamageByEntityEvent;
 import org.bukkit.potion.PotionEffect;
 import org.bukkit.potion.PotionEffectType;
 
+import static hra.vybava.MecNaTeleportery.MEC_NA_TELEPORTERY;
+
 public class OhnivakListener implements Listener {
 
     @EventHandler
@@ -23,27 +25,31 @@ public class OhnivakListener implements Listener {
         var jmenoVesnicana = vesnican.getCustomName();
 
         if (Teleporteri.OHNIVAK.getJmeno().equals(jmenoVesnicana)) {
-            var vybavaOhnivak = new VybavaOhnivak();
-            hrac.teleport(mistoAreny.get());
-            hrac.sendMessage("Byl jsi úspěšně připojen do hry.");
-            hrac.addPotionEffect(new PotionEffect(PotionEffectType.REGENERATION, 999999999, 700, true, false, false));
-            hrac.getInventory().clear();
-            hrac.getInventory().setBoots(vybavaOhnivak.vyrobOhnivakBoty());
-            hrac.getInventory().setHelmet(vybavaOhnivak.vyrobOhnivakHelma());
-            hrac.getInventory().setLeggings(vybavaOhnivak.vyrobOhnivakKalhoty());
-            hrac.getInventory().addItem(vybavaOhnivak.vyrobOhnivakMec());
-            hrac.getInventory().addItem(vybavaOhnivak.vyrobSekeru());
-            hrac.getInventory().addItem(vybavaOhnivak.vyrobLuk());
-            hrac.getInventory().addItem(vybavaOhnivak.vyrobSip());
-            hrac.getInventory().addItem(vybavaOhnivak.vyrobEnderPerlu());
-            hrac.getInventory().addItem(vybavaOhnivak.vyrobJabka());
-            hrac.getInventory().setItemInOffHand(vybavaOhnivak.vyrobOhnivakStit());
-
-            if (vesnican instanceof LivingEntity) {
-                LivingEntity zijciVesnican = (LivingEntity) vesnican;
-                zijciVesnican.addPotionEffect(new PotionEffect(PotionEffectType.HEAL, 10, 5));
+            if ((Teleporteri.OHNIVAK.getJmeno().equals(event.getEntity().getCustomName())) &&
+                    ((MEC_NA_TELEPORTERY.equals(hrac.getInventory().getItemInMainHand().getItemMeta().getDisplayName())))) {
+                event.getEntity().remove();
+   //             event.setCancelled(true);
+            } else {
+                var vybavaOhnivak = new VybavaOhnivak();
+                hrac.teleport(mistoAreny.get());
+                hrac.sendMessage("Byl jsi úspěšně připojen do hry.");
+                hrac.addPotionEffect(new PotionEffect(PotionEffectType.REGENERATION, 999999999, 5, true, false, false));
+                hrac.getInventory().clear();
+                hrac.getInventory().setBoots(vybavaOhnivak.vyrobOhnivakBoty());
+                hrac.getInventory().setHelmet(vybavaOhnivak.vyrobOhnivakHelma());
+                hrac.getInventory().setLeggings(vybavaOhnivak.vyrobOhnivakKalhoty());
+                hrac.getInventory().addItem(vybavaOhnivak.vyrobOhnivakMec());
+                hrac.getInventory().addItem(vybavaOhnivak.vyrobSekeru());
+                hrac.getInventory().addItem(vybavaOhnivak.vyrobLuk());
+                hrac.getInventory().addItem(vybavaOhnivak.vyrobSip());
+                hrac.getInventory().addItem(vybavaOhnivak.vyrobEnderPerlu());
+                hrac.getInventory().addItem(vybavaOhnivak.vyrobJabka());
+                hrac.getInventory().setItemInOffHand(vybavaOhnivak.vyrobOhnivakStit());
+                if (vesnican instanceof LivingEntity) {
+                    LivingEntity zijiciVesnican = (LivingEntity) vesnican;
+                    zijiciVesnican.addPotionEffect(new PotionEffect(PotionEffectType.HEAL, 10, 5));
+                }
             }
-            event.setCancelled(true);
         }
     }
 }
