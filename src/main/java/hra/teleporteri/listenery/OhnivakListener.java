@@ -36,6 +36,7 @@ public class OhnivakListener implements Listener {
                 hrac.getInventory().clear();
                 hrac.getInventory().setBoots(vybavaOhnivak.vyrobOhnivakBoty());
                 hrac.getInventory().setHelmet(vybavaOhnivak.vyrobOhnivakHelma());
+                hrac.getInventory().setChestplate(vybavaOhnivak.vyrobOhnivakBrneni());
                 hrac.getInventory().setLeggings(vybavaOhnivak.vyrobOhnivakKalhoty());
                 hrac.getInventory().addItem(vybavaOhnivak.vyrobOhnivakMec());
                 hrac.getInventory().addItem(vybavaOhnivak.vyrobSekeru());

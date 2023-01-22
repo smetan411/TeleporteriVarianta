@@ -1,5 +1,6 @@
 package hra.listenery;
 
+import org.bukkit.GameMode;
 import org.bukkit.Material;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
@@ -17,5 +18,6 @@ public class SmrtHrace implements Listener {
         event.getDrops().add(enderPerla);
         var player = event.getEntity();
         player.getInventory().clear();
+        player.setGameMode(GameMode.ADVENTURE);
     }
 }
