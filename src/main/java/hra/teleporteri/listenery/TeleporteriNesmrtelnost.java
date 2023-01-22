@@ -1,7 +1,6 @@
 package hra.teleporteri.listenery;
 
 import hra.teleporteri.Teleporteri;
-import hra.vybava.MecNaTeleportery;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.entity.EntityDamageByEntityEvent;
