@@ -28,7 +28,6 @@ public class DuchListener implements Listener {
             if ((Teleporteri.DUCH.getJmeno().equals(event.getEntity().getCustomName())) &&
                     ((MEC_NA_TELEPORTERY.equals(hrac.getInventory().getItemInMainHand().getItemMeta().getDisplayName())))) {
                 event.getEntity().remove();
-    //            event.setCancelled(true);
             } else {
                 hrac.teleport(mistoAreny.get());
                 hrac.sendMessage("Byl jsi úspěšně připojen do hry.");
@@ -39,11 +38,10 @@ public class DuchListener implements Listener {
                 hrac.getInventory().addItem(VybavaDuch.vyrobSekeru());
                 hrac.getInventory().addItem(VybavaDuch.vyrobJabka());
                 hrac.getInventory().addItem(VybavaDuch.vyrobEnderPerlu());
-            if (vesnican instanceof LivingEntity) {
-                LivingEntity zijiciVesnican = (LivingEntity) vesnican;
-                zijiciVesnican.addPotionEffect(new PotionEffect(PotionEffectType.HEAL, 10, 5));
-            }
-//            event.setCancelled(true);
+                if (vesnican instanceof LivingEntity) {
+                    LivingEntity zijiciVesnican = (LivingEntity) vesnican;
+                    zijiciVesnican.addPotionEffect(new PotionEffect(PotionEffectType.HEAL, 10, 5));
+                }
             }
         }
     }

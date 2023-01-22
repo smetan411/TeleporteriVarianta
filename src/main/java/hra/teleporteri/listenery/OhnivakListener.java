@@ -28,8 +28,7 @@ public class OhnivakListener implements Listener {
             if ((Teleporteri.OHNIVAK.getJmeno().equals(event.getEntity().getCustomName())) &&
                     ((MEC_NA_TELEPORTERY.equals(hrac.getInventory().getItemInMainHand().getItemMeta().getDisplayName())))) {
                 event.getEntity().remove();
-   //             event.setCancelled(true);
-            } else {
+             } else {
                 var vybavaOhnivak = new VybavaOhnivak();
                 hrac.teleport(mistoAreny.get());
                 hrac.sendMessage("Byl jsi úspěšně připojen do hry.");

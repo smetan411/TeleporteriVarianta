@@ -28,7 +28,6 @@ public class VidlakListener implements Listener {
             if ((Teleporteri.VIDLAK.getJmeno().equals(event.getEntity().getCustomName())) &&
                     ((MEC_NA_TELEPORTERY.equals(hrac.getInventory().getItemInMainHand().getItemMeta().getDisplayName())))) {
                 event.getEntity().remove();
- //               event.setCancelled(true);
             } else {
                 var vybavaVidlak = new VybavaVidlak();
                 hrac.teleport(mistoAreny.get());

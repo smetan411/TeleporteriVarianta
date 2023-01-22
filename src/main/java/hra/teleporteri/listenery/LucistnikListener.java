@@ -28,8 +28,7 @@ public class LucistnikListener implements Listener {
             if ((Teleporteri.LUCISTNIK.getJmeno().equals(event.getEntity().getCustomName())) &&
                     ((MEC_NA_TELEPORTERY.equals(hrac.getInventory().getItemInMainHand().getItemMeta().getDisplayName())))) {
                 event.getEntity().remove();
- //               event.setCancelled(true);
-            } else {
+             } else {
                 var vybavaLucistnik = new VybavaLucistnik();
                 hrac.teleport(mistoAreny.get());
                 hrac.sendMessage("Byl jsi úspěšně připojen do hry.");

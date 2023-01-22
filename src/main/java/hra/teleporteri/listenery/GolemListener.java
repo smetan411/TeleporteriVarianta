@@ -29,8 +29,7 @@ public class GolemListener implements Listener {
             if ((Teleporteri.GOLEM.getJmeno().equals(event.getEntity().getCustomName())) &&
                     ((MEC_NA_TELEPORTERY.equals(hrac.getInventory().getItemInMainHand().getItemMeta().getDisplayName())))) {
                 event.getEntity().remove();
-                //            event.setCancelled(true);
-            } else {
+               } else {
                 var vybavaGolem = new VybavaGolem();
                 hrac.teleport(mistoAreny.get());
                 hrac.sendMessage("Byl jsi úspěšně připojen do hry.");
