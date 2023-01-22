@@ -5,6 +5,7 @@ import hra.listenery.RespawnHrace;
 import hra.listenery.SmrtHrace;
 import hra.teleporteri.commands.*;
 import hra.teleporteri.listenery.*;
+import hra.vybava.MecNaTeleportery;
 import org.bukkit.plugin.java.JavaPlugin;
 
 
@@ -21,6 +22,8 @@ public class Main extends JavaPlugin {
         getServer().getPluginManager().registerEvents(new SmrtHrace(), this);
         getServer().getPluginManager().registerEvents(new RespawnHrace(), this);
         getServer().getPluginManager().registerEvents(new PripojeniListener(), this);
+        getServer().getPluginManager().registerEvents(new TeleporteriNesmrtelnost(), this);
+
 
 
         //commands
@@ -29,5 +32,6 @@ public class Main extends JavaPlugin {
         getCommand("_Lucistnik").setExecutor(new Lucistnik());
         getCommand("_Ohnivak").setExecutor(new Ohnivak());
         getCommand("_Vidlak").setExecutor(new Vidlak());
+        getCommand("_MecNaTeleportery").setExecutor(new MecNaTeleportery());
     }
 }

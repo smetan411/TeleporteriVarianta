@@ -3,10 +3,11 @@ package hra.teleporteri.listenery;
 import hra.teleporteri.Teleporteri;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
+import org.bukkit.event.Listener;
 import org.bukkit.event.entity.EntityDamageByEntityEvent;
 import static hra.vybava.MecNaTeleportery.MEC_NA_TELEPORTERY;
 
-public class TeleporteriNesmrtelnost {
+public class TeleporteriNesmrtelnost implements Listener {
     @EventHandler
     public void nastavNesmrtelnost(EntityDamageByEntityEvent udalost) {
 
