@@ -1,8 +1,7 @@
-package hra.teleporteri.listenery;
+package hra.listenery;
 
 import hra.mista.MistoAreny;
-import hra.teleporteri.Teleporteri;
-import hra.vybava.VybavaDuch;
+import hra.vybava.VybavaVidlak;
 import org.bukkit.entity.LivingEntity;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
@@ -13,10 +12,10 @@ import org.bukkit.potion.PotionEffectType;
 
 import static hra.vybava.MecNaTeleportery.MEC_NA_TELEPORTERY;
 
-public class DuchListener implements Listener {
+public class VidlakListener implements Listener {
 
     @EventHandler
-    public void uderDoTeleportera(EntityDamageByEntityEvent event) {
+    public void uderVesnicana(EntityDamageByEntityEvent event) {
 
         if (!(event.getDamager() instanceof Player)) return;
         var hrac = (Player) event.getDamager();
@@ -24,20 +23,27 @@ public class DuchListener implements Listener {
         var vesnican = event.getEntity();
         var jmenoVesnicana = vesnican.getCustomName();
 
-        if (Teleporteri.DUCH.getJmeno().equals(jmenoVesnicana)) {
-            if ((Teleporteri.DUCH.getJmeno().equals(event.getEntity().getCustomName())) &&
+        if (Teleporteri.VIDLAK.getJmeno().equals(jmenoVesnicana)) {
+            if ((Teleporteri.VIDLAK.getJmeno().equals(event.getEntity().getCustomName())) &&
                     ((MEC_NA_TELEPORTERY.equals(hrac.getInventory().getItemInMainHand().getItemMeta().getDisplayName())))) {
                 event.getEntity().remove();
             } else {
+                var vybavaVidlak = new VybavaVidlak();
                 hrac.teleport(mistoAreny.get());
                 hrac.sendMessage("Byl jsi úspěšně připojen do hry.");
                 hrac.addPotionEffect(new PotionEffect(PotionEffectType.REGENERATION, 999999999, 5, true, false, false));
-                hrac.addPotionEffect(new PotionEffect(PotionEffectType.INVISIBILITY, 999999999, 0, true, false, false));
                 hrac.getInventory().clear();
-                hrac.getInventory().addItem(VybavaDuch.vyrobMec());
-                hrac.getInventory().addItem(VybavaDuch.vyrobSekeru());
-                hrac.getInventory().addItem(VybavaDuch.vyrobJabka());
-                hrac.getInventory().addItem(VybavaDuch.vyrobEnderPerlu());
+                hrac.getInventory().setBoots(vybavaVidlak.vyrobBoty());
+                hrac.getInventory().setHelmet(vybavaVidlak.vyrobHelmu());
+                hrac.getInventory().setLeggings(vybavaVidlak.vyrobLeginy());
+                hrac.getInventory().setChestplate(vybavaVidlak.vyrobBrneni());
+                hrac.getInventory().addItem(vybavaVidlak.vyrobMec());
+                hrac.getInventory().addItem(vybavaVidlak.vyrobSekeru());
+                hrac.getInventory().addItem(vybavaVidlak.vyrobJabka());
+                hrac.getInventory().addItem(vybavaVidlak.vyrobLuk());
+                hrac.getInventory().addItem(vybavaVidlak.vyrobEnderPerlu());
+                hrac.getInventory().addItem(vybavaVidlak.vyrobSip());
+                hrac.getInventory().setItemInOffHand(vybavaVidlak.vyrobStit());
                 if (vesnican instanceof LivingEntity) {
                     LivingEntity zijiciVesnican = (LivingEntity) vesnican;
                     zijiciVesnican.addPotionEffect(new PotionEffect(PotionEffectType.HEAL, 10, 5));

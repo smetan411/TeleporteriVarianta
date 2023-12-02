@@ -1,6 +1,6 @@
-package hra.teleporteri.commands;
+package hra.commands;
 
-import hra.teleporteri.Teleporteri;
+import hra.listenery.Teleporteri;
 import org.bukkit.Location;
 import org.bukkit.World;
 import org.bukkit.command.Command;

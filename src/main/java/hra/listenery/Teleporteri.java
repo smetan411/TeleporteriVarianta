@@ -1,4 +1,4 @@
-package hra.teleporteri;
+package hra.listenery;
 
 public enum Teleporteri {
     DUCH("Duch"), LUCISTNIK("Lucistnik"), GOLEM("Golem"), OHNIVAK("Ohnivak"), VIDLAK("Vidlak");

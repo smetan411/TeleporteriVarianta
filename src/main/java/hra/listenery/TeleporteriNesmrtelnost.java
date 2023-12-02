@@ -1,6 +1,5 @@
-package hra.teleporteri.listenery;
+package hra.listenery;
 
-import hra.teleporteri.Teleporteri;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;

@@ -1,10 +1,7 @@
 package hra;
 
-import hra.listenery.PripojeniListener;
-import hra.listenery.RespawnHrace;
-import hra.listenery.SmrtHrace;
-import hra.teleporteri.commands.*;
-import hra.teleporteri.listenery.*;
+import hra.listenery.*;
+import hra.commands.*;
 import hra.vybava.MecNaTeleportery;
 import org.bukkit.plugin.java.JavaPlugin;
 

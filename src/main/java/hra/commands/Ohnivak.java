@@ -1,6 +1,6 @@
-package hra.teleporteri.commands;
+package hra.commands;
 
-import hra.teleporteri.Teleporteri;
+import hra.listenery.Teleporteri;
 import org.bukkit.Location;
 import org.bukkit.World;
 import org.bukkit.command.Command;
@@ -11,19 +11,21 @@ import org.bukkit.entity.Player;
 import org.bukkit.entity.Villager;
 
 
-public class Golem implements CommandExecutor {
+public class Ohnivak implements CommandExecutor {
 
     @Override
     public boolean onCommand(CommandSender commandSender, Command command, String s, String[] strings) {
         if (!(commandSender instanceof Player)) return false;
         Player player = (Player) commandSender;
-        vytvorGolema(player.getWorld(), player.getLocation());
+        vytvorOhnivaka(player.getWorld(), player.getLocation());
         return true;
     }
 
-    public void vytvorGolema(World svet, Location misto) {
-        var golem = (Villager) svet.spawnEntity(misto, EntityType.VILLAGER);
-        golem.setCustomName(Teleporteri.GOLEM.getJmeno());
-        golem.setAI(false);
+
+    public void vytvorOhnivaka(World svet, Location misto) {
+        var ohnivak = (Villager) svet.spawnEntity(misto, EntityType.VILLAGER);
+        ohnivak.setCustomName(Teleporteri.OHNIVAK.getJmeno());
+        ohnivak.setAI(false);
     }
+
 }

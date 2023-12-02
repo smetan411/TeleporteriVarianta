@@ -1,7 +1,6 @@
-package hra.teleporteri.listenery;
+package hra.listenery;
 
 import hra.mista.MistoAreny;
-import hra.teleporteri.Teleporteri;
 import hra.vybava.VybavaLucistnik;
 import org.bukkit.entity.LivingEntity;
 import org.bukkit.entity.Player;
